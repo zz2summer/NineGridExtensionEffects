@@ -1,0 +1,181 @@
+<!doctype html> <!--声明html版本编写命令  h5-->
+<html>
+    <head><!--提供给搜索引擎来识别的-->
+        <!--声明页面编码  utf-8 国际编码-->
+        <meta charset="UTF-8">
+        <!--网站三要素 关键字 页面描述 标题-->
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <title>九宫格延伸特效</title>
+        <!--css样式层叠表-->
+        <style>
+            *{/*通配符：匹配页面所有元素*/
+                margin: 0;
+                padding: 0;
+            }
+            html,body{
+                width: 100%; /*相对于父级的宽度*/
+                height: 100%;
+                overflow: hidden;
+            }
+            body{
+                background:url("./images/bg.jpg") no-repeat; /*复合写法 颜色 背景图片  位置……*/
+                background-size: 100% 100%;
+            }
+            #box{
+                width: 906px;
+                height: 486px;
+                background-color: #6699cc;
+                border: 5px solid #ffffff;/*边框： 大小 实线 颜色*/
+                margin: 100px auto;/*上下100 左右自适应*/
+            }
+            #box ul li{
+                position: relative;/*相对定位 参考物*/
+                float: left; /*浮动 让元素从左到右横排显示*/
+                list-style: none;/*去掉小圆点*/
+                width: 300px;
+                height: 160px;
+                background: #6633ff;
+                border: 1px solid #fff;
+            }
+            #box ul li img.first{
+                opacity: 1;
+            }
+            #box ul li img{
+                position: absolute;/*绝对定位，相当于运动的人*/
+                left: 0;
+                top: 0;
+                opacity: 0;
+                transition: .5s;
+            }
+            #box ul li p{
+                position: absolute;/*绝对定位，相当于运动的人*/
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                font-size: 20px;
+                color: #fff;
+                text-align: center;
+                line-height: 160px;
+                opacity: 0; /*透明度*/
+                background: rgba(0, 0, 0, .7);
+                transition: .5s;
+            }
+            #box ul li:hover img.right{
+                left: 302px;
+                z-index: 999;
+                opacity: 1;
+            }
+            #box ul li:hover img.left{
+                left: -302px;
+                z-index: 999;
+                opacity: 1;
+            }
+            #box ul li:hover img.bottom{
+                top: 162px;
+                z-index: 999;
+                opacity: 1;
+            }
+            #box ul li:hover img.top{
+                top: -162px;
+                z-index: 999;
+                opacity: 1;
+            }
+            #box ul li:hover p{
+                opacity: 1;
+            }
+        </style>
+        <body><!--提供给用户来识别的-->
+            <!--
+                1. div: 层 盒子 盒模型 跨元素 宽度 高度 颜色等
+                2. 命名规范：
+                    1.id：# 模块在页面中仅出现一次 相当于身份证，仅出现一次
+                    2.class：. 模块在页面中重复出现 相当于姓名,可以重复出现，通用率很高
+                3. 企业的大概的命名规范：
+                    禁止
+                        无意义字节 div1，div2，aaa
+                        拼音  toudu didu
+                        不推荐大写英文单词
+                    应该怎么做
+                        小写的英文单词 box header footer
+                        “-” header-top header-bottom
+                        可以适当缩写
+                        见名知意
+                4. 浏览器的兼容性问题（企业中很看重的）
+                5. 严谨的逻辑思维
+                   用心去开发
+                6. 浏览器怎么去解析样式及标签
+                7. 固定在文档上面
+                   脱离文档流 浮动 定位
+                   定位： 元素相对于谁运动 层级 z-index
+                   css3动态伪类选择器：hover 鼠标划入改变什么样式
+                   css3的过渡属性： transition 动画执行的时间
+            -->
+            <div id="box">
+                <ul><!--无序列表-->
+                    <li>
+                        <img class="first" src="images/img1.png"/>
+                        <img class="right" src="images/seor.jpg"/>
+                        <img class="bottom" src="images/seob.jpg"/>
+                        <p>SEO课程</p>
+                    </li>
+                    <li>
+                        <img class="first" src="images/img2.png"/>
+                        <img class="right" src="images/taor.jpg"/>
+                        <img class="left" src="images/taol.jpg"/>
+                        <img class="bottom" src="images/taob.jpg"/>
+                        <p>淘宝美工课程</p>
+                    </li>
+                    <li>
+                        <img class="first" src="images/img3.png"/>
+                        <img class="left" src="images/syl.jpg"/>
+                        <img class="bottom" src="images/syb.jpg"/>
+                        <p>摄影课程</p>
+                    </li>
+                    <li>
+                        <img class="first" src="images/img4.png"/>
+                        <img class="right" src="images/jr.jpg"/>
+                        <img class="top" src="images/jt.jpg"/>
+                        <img class="bottom" src="images/jb.jpg"/>
+                        <p>JAVA、C++、IOS</p>
+                    </li>
+                    <li>
+                        <img class="first" src="images/img5.png"/>
+                        <img class="right" src="images/wr.jpg"/>
+                        <img class="left" src="images/wl.jpg"/>
+                        <img class="top" src="images/wt.jpg"/>
+                        <img class="bottom" src="images/wb.jpg"/>
+                        <p>前端课程体系</p>
+                    </li>
+                    <li>
+                        <img class="first" src="images/img6.png"/>
+                        <img class="left" src="images/pl.jpg"/>
+                        <img class="top" src="images/pt.png"/>
+                        <img class="bottom" src="images/pb.jpg"/>
+                        <p>平面设计课程</p>
+                    </li>
+                    <li>
+                        <img class="first" src="images/img7.png"/>
+                        <img class="right" src="images/wll.jpg"/>
+                        <img class="top" src="images/wlt.jpg"/>
+                        <p>网络课程</p>
+                    </li>
+                    <li>
+                        <img class="first" src="images/img8.png"/>
+                        <img class="right" src="images/snr.jpg"/>
+                        <img class="left" src="images/snl.jpg"/>
+                        <img class="top" src="images/snt.jpg"/>
+                        <p>室内设计课程</p>
+                    </li>
+                    <li>
+                        <img class="first" src="images/img9.png"/>
+                        <img class="left" src="images/ynl.jpg"/>
+                        <img class="top" src="images/ynt.jpg"/>
+                        <p>八大外语课程</p>
+                    </li>
+                </ul>
+            </div>
+        </body>
+    </head>
+</html>
